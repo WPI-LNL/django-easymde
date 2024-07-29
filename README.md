@@ -1,38 +1,42 @@
-# A markdown editor(with preview) for Django
-Use markdown editor https://github.com/sparksuite/simplemde-markdown-editor in django project, this project is inspired by https://github.com/douglasmiranda/django-wysiwyg-redactor/ 
+# A markdown editor (with preview) for Django
+Use a simple markdown editor https://github.com/Ionaru/easy-markdown-editor in django forms. This project is inspired by https://github.com/sparksuite/simplemde-markdown-editor and https://github.com/douglasmiranda/django-wysiwyg-redactor/.
+
+***Note that [SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor) is no longer in development, and has been forked to create [EasyMDE](https://github.com/Ionaru/easy-markdown-editor), which is in active development as of mid-2024.***
 
 # Getting started
-* install django-simplemde
+* install django-easymde
 ```
-pip install django-simplemde
+pip install django-easymde
 ```
 
-* add 'simplemde' to INSTALLED_APPS.
+* add 'easymde' to INSTALLED_APPS.
 
 ```python
 INSTALLED_APPS = (
     # ...
-    'simplemde',
+    'easymde',
     # ...
 )
 ```
 
-# Using in models
+# Using field in models
 ```python
 from django.db import models
-from simplemde.fields import SimpleMDEField
+from easymde.fields import EasyMDEField
 
 class Entry(models.Model):
     title = models.CharField(max_length=250, verbose_name=u'Title')
     content = SimpleMDEField(verbose_name=u'mardown content')
 ```
 
-# SimpleMDE options
-You could set SimpleMDE options in settings.py like this:
+Note: The widget `SimpleMDEWidget` can also be used in forms on existing fields.
+
+# EasyMDE options
+EasyMDE options can be set in `settings.py`:
 
 ```python
-SIMPLEMDE_OPTIONS = {
-    'placeholder': 'haha',
+EASYMDE_OPTIONS = {
+    'placeholder': 'Type here...',
     'status': False,
     'autosave': {
         'enabled': True
@@ -40,14 +44,14 @@ SIMPLEMDE_OPTIONS = {
 }
 ```
 
-Right now this plugin supports [SimpleMDE Configurations](https://github.com/sparksuite/simplemde-markdown-editor#configuration), but only the static ones(don't support js configurations like ```previewRender```)
+***For the autosave option, this plugin will generate uniqueId with python's uuid.uuid4 automatically.***
 
-***for autosave option, you dont need to set it, this plugin will generate uniqueId with python's uuid.uuid4 automatically***
+Right now, this plugin supports [EasyMDE Configurations](https://github.com/Ionaru/easy-markdown-editor#configuration), but only the static ones(no support for javascript configurations such as ```previewRender```)
 
 # Get SimpleMDE instance from DOM
 
-After SimpleMDE initialized, you could get SimpleMDE instance from dom element like this:
+After SimpleMDE is initialized, a SimpleMDE instance can be retrieved from the DOM element:
 
 ```javascript
-$('.simplemde-box')[0].SimpleMDE
+$('.simplemde-box')[0].EasyMDE
 ```

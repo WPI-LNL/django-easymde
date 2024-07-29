@@ -1,6 +1,3 @@
-from django.core.exceptions import ImproperlyConfigured
-from importlib import import_module
-
 try:
     # django > 3 
     from django.utils.encoding import force_str

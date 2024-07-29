@@ -1,7 +1,7 @@
 from django.db import models
-from simplemde.fields import SimpleMDEField
+from easymde.fields import EasyMDEField
 
 
 class Markdown(models.Model):
     title = models.CharField(max_length=32)
-    content = SimpleMDEField()
+    content = EasyMDEField()

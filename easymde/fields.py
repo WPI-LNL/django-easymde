@@ -1,16 +1,16 @@
 from django.db.models import TextField
 from django.conf import settings
 from django.contrib.admin import widgets as admin_widgets
-from .widgets import SimpleMDEEditor
+from .widgets import EasyMDEEditor
 
 
-class SimpleMDEField(TextField):
+class EasyMDEField(TextField):
     def __init__(self, *args, **kwargs):
-        options = kwargs.pop('simplemde_options', {})
-        self.widget = SimpleMDEEditor(
-            simplemde_options=options,
+        options = kwargs.pop('easymde_options', {})
+        self.widget = EasyMDEEditor(
+            easymde_options=options,
         )
-        super(SimpleMDEField, self).__init__(*args, **kwargs)
+        super(EasyMDEField, self).__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):
         defaults = {'widget': self.widget}
@@ -18,9 +18,9 @@ class SimpleMDEField(TextField):
 
         if defaults['widget'] == admin_widgets.AdminTextareaWidget:
             defaults['widget'] = self.widget
-        return super(SimpleMDEField, self).formfield(**defaults)
+        return super(EasyMDEField, self).formfield(**defaults)
 
 
 if 'south' in settings.INSTALLED_APPS:
     from south.modelsinspector import add_introspection_rules
-    add_introspection_rules([], ["^simplemde\.fields\.SimpleMDEField"])
+    add_introspection_rules([], ["^easymde\.fields\.EasyMDEField"])
