@@ -25,7 +25,7 @@ class EasyMDEEditor(widgets.Textarea):
     def options(self):
         options = GLOBAL_OPTIONS.copy()
         if 'autosave' in options and options['autosave'].get('enabled', False):
-            options['autosave']['uniqueId'] = self.template_name
+            options['autosave']['uniqueId'] = str(uuid.uuid4())
         options.update(self.custom_options)
         return options
 
