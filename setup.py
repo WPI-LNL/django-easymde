@@ -6,16 +6,16 @@ readme = f.read()
 f.close()
 
 setup(
-    name='django-simplemde',
+    name='django-easymde',
     version='1.0.1',
-    description='django-simplemde is a WYSIWYG markdown editor for Django',
+    description='django-easymde is a WYSIWYG markdown editor for Django',
     long_description=readme,
     long_description_content_type="text/markdown",
-    author="Siyuan Zhang",
-    author_email='onepill@gmail.com',
-    url='https://github.com/onepill/django-simplemde',
+    author="Benjamin Antupit",
+    author_email='b@antupit.com',
+    url='https://github.com/WPI-LNL/django-easymde',
     license='MIT',
-    packages=['simplemde'],
+    packages=['easymde'],
     include_package_data=True,
     install_requires=['setuptools'],
     zip_safe=False,
@@ -28,5 +28,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
     ],
-    keywords='django,admin,wysiwyg,markdown,editor,simplemde',
+    keywords='django,admin,wysiwyg,markdown,editor,easymde',
 )

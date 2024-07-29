@@ -103,11 +103,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-SIMPLEMDE_OPTIONS = {
-    'placeholder': 'Do you fancy Markdown?',
-    'spellChecker': False,
+# EasyMDE options
+# Find all options at https://github.com/Ionaru/easy-markdown-editor#configuration
+
+EASYMDE_OPTIONS = {
+    'placeholder': 'Do you fancy Markdown?', 
     'status': False,
-    'autosave': {
+    'autosave': { # Note that autosave 'uniqueId' is set in EasyMDEEditor widget.
         'enabled': True
-    }
+    },
+    # For native spell checking, all three following options are needed.
+    'spellChecker': False,
+    'inputStyle': "contenteditable",
+    'nativeSpellcheck': True,
 }

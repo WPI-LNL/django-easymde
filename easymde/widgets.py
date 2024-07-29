@@ -13,13 +13,13 @@ except ImportError:
 from .utils import json_dumps
 
 
-GLOBAL_OPTIONS = getattr(settings, 'SIMPLEMDE_OPTIONS', {})
+GLOBAL_OPTIONS = getattr(settings, 'EASYMDE_OPTIONS', {})
 
 
-class SimpleMDEEditor(widgets.Textarea):
+class EasyMDEEditor(widgets.Textarea):
     def __init__(self, *args, **kwargs):
-        self.custom_options = kwargs.pop('simplemde_options', {})
-        super(SimpleMDEEditor, self).__init__(*args, **kwargs)
+        self.custom_options = kwargs.pop('easymde_options', {})
+        super(EasyMDEEditor, self).__init__(*args, **kwargs)
 
     @property
     def options(self):
@@ -33,11 +33,11 @@ class SimpleMDEEditor(widgets.Textarea):
         if 'class' not in attrs.keys():
             attrs['class'] = ''
 
-        attrs['class'] += ' simplemde-box'
+        attrs['class'] += ' easymde-box'
 
-        attrs['data-simplemde-options'] = json_dumps(self.options)
+        attrs['data-easymde-options'] = json_dumps(self.options)
 
-        html = super(SimpleMDEEditor, self).render(name, value, attrs, renderer=renderer)
+        html = super(EasyMDEEditor, self).render(name, value, attrs, renderer=renderer)
         
         # insert this style tag to fix the label from breaking into the toolbar
         html += "<style>.field-%s label { float: none; }</style>" % name
@@ -46,13 +46,13 @@ class SimpleMDEEditor(widgets.Textarea):
 
     def _media(self):
         js = (
-            'simplemde/easymde.min.js',
-            'simplemde/simplemde.init.js'
+            'easymde/easymde.min.js',
+            'easymde/easymde.init.js'
         )
 
         css = {
             'all': (
-                'simplemde/easymde.min.css',
+                'easymde/easymde.min.css',
             )
         }
         return forms.Media(css=css, js=js)
