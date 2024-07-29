@@ -26,10 +26,10 @@ from easymde.fields import EasyMDEField
 
 class Entry(models.Model):
     title = models.CharField(max_length=250, verbose_name=u'Title')
-    content = SimpleMDEField(verbose_name=u'mardown content')
+    content = EasyMDEField(verbose_name=u'mardown content')
 ```
 
-Note: The widget `SimpleMDEWidget` can also be used in forms on existing fields.
+Note: The widget `EasyMDEWidget` can also be used in forms on existing fields.
 
 # EasyMDE options
 EasyMDE options can be set in `settings.py`:
@@ -48,10 +48,10 @@ EASYMDE_OPTIONS = {
 
 Right now, this plugin supports [EasyMDE Configurations](https://github.com/Ionaru/easy-markdown-editor#configuration), but only the static ones(no support for javascript configurations such as ```previewRender```)
 
-# Get SimpleMDE instance from DOM
+# Get EasyMDE instance from DOM
 
-After SimpleMDE is initialized, a SimpleMDE instance can be retrieved from the DOM element:
+After EasyMDE is initialized, a EasyMDE instance can be retrieved from the DOM element:
 
 ```javascript
-$('.simplemde-box')[0].EasyMDE
+$('.easymde-box')[0].EasyMDE
 ```
