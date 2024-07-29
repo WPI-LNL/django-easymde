@@ -7,7 +7,7 @@ f.close()
 
 setup(
     name='django-simplemde',
-    version='0.1.4',
+    version='1.0.1',
     description='django-simplemde is a WYSIWYG markdown editor for Django',
     long_description=readme,
     long_description_content_type="text/markdown",
