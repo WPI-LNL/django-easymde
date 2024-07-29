@@ -7,7 +7,7 @@ f.close()
 
 setup(
     name='django-easymde',
-    version='1.0.1',
+    version='1.0.2',
     description='django-easymde is a WYSIWYG markdown editor for Django',
     long_description=readme,
     long_description_content_type="text/markdown",
