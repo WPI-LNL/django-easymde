@@ -25,7 +25,7 @@ class SimpleMDEEditor(widgets.Textarea):
     def options(self):
         options = GLOBAL_OPTIONS.copy()
         if 'autosave' in options and options['autosave'].get('enabled', False):
-            options['autosave']['uniqueId'] = self.template_name
+            options['autosave']['uniqueId'] = str(uuid.uuid4())
         options.update(self.custom_options)
         return options
 
@@ -46,13 +46,13 @@ class SimpleMDEEditor(widgets.Textarea):
 
     def _media(self):
         js = (
-            'simplemde/easymde.min.js',
+            'simplemde/simplemde.min.js',
             'simplemde/simplemde.init.js'
         )
 
         css = {
             'all': (
-                'simplemde/easymde.min.css',
+                'simplemde/simplemde.min.css',
             )
         }
         return forms.Media(css=css, js=js)
